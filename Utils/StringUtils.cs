@@ -8,6 +8,30 @@ namespace Library.Utils
 {
     public class StringUtils
     {
+        public static string z(int x)
+        {
+            if (x<=9)
+            {
+                var n = "0" + x;
+                return n;
+            }
+            return x.ToString();
+        }
+        public static string RandomTxt(int length,bool numbers = false)
+        {
+            Random r = new Random();
+            var p = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            char l;
+            string str = "";
+            if (numbers)
+                p = p + "1234567890";
+            for (int i = 0; i < length; i++)
+            {
+                l = p[r.Next(p.Length)];
+                str += l.ToString();
+            }
+            return str;
+        }
         public static string BytesArrayToHexString(sbyte[] Bytes)
         {
             StringBuilder Result = new StringBuilder(Bytes.Length * 2);
